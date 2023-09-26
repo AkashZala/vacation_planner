@@ -7,7 +7,7 @@
 - npm run build:dev
 
 # Tasks
-- show user for each vacation in vacations list
+x show user for each vacation in vacations list
 - clear out the from after a vacation is created
 - display the most popular place based on vacations
 - a vacation **needs** a note VARCHAR(255)
