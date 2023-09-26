@@ -13,6 +13,8 @@ const VacationForm = ({ places, users, bookVacation }) => {
       place_id: placeId
     };
     bookVacation(vacation);
+    setPlaceId('');
+    setUserId('');
   }
   return (
     <form onSubmit={save}>
