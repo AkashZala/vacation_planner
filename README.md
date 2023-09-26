@@ -15,5 +15,5 @@ x display the note with the vacations
 x add ability to add a note when creating a vacation
 - ability to create a user
 - ability to create a place
-- separate out react components
+x separate out react components
 - deploy
