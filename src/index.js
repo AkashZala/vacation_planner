@@ -5,16 +5,19 @@ import axios from 'axios';
 const VacationForm = ({ places, users, bookVacation }) => {
   const [placeId, setPlaceId] = useState('');
   const [userId, setUserId] = useState('');
+  const [note, setNote] = useState('');
 
   const save = (ev) => {
     ev.preventDefault();
     const vacation = {
       user_id: userId,
-      place_id: placeId
+      place_id: placeId,
+      note: note
     };
     bookVacation(vacation);
     setPlaceId('');
     setUserId('');
+    setNote('');
   }
   return (
     <form onSubmit={save}>
@@ -38,7 +41,10 @@ const VacationForm = ({ places, users, bookVacation }) => {
           })
         }
       </select>
-      <button disabled={!placeId || !userId}>Book Vacation</button>
+      <label>
+        <input placeholder='ADD A NOTE' value={note} onChange={event => setNote(event.target.value)} />
+      </label>
+      <button disabled={!placeId || !userId || !note}>Book Vacation</button>
     </form>
   );
 }
@@ -80,6 +86,9 @@ const Vacations = ({ vacations, places, users, cancelVacation }) => {
                 </div>
                 <div>
                   (user: {user ? user.name : ''})
+                </div>
+                <div>
+                  Note: {vacation.note}
                 </div>
                 <button onClick={() => cancelVacation(vacation)}>Cancel</button>
               </li>
